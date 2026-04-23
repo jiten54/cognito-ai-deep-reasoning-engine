@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-bg: #0a0a0c;
+  --color-brand-card: #111114;
+  --color-brand-ink: #f1f5f9; /* slate-100 */
+  --color-brand-muted: #94a3b8; /* slate-400 */
+  --color-brand-line: #1e293b; /* slate-800 */
+  --color-brand-accent: #06b6d4; /* cyan-500 */
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-ink font-sans selection:bg-brand-accent selection:text-brand-bg;
+  }
+
+  .markdown-body {
+    @apply space-y-4 leading-relaxed text-brand-muted;
+  }
+  .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+    @apply font-semibold tracking-tight mt-6 mb-2 text-brand-ink;
+  }
+  .markdown-body p {
+    @apply last:mb-0;
+  }
+  .markdown-body ul, .markdown-body ol {
+    @apply pl-5 list-disc;
+  }
+  .markdown-body code {
+    @apply px-1 py-0.5 rounded bg-brand-line font-mono text-[0.9em] text-brand-accent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-brand-line rounded-full;
+  }
+}
